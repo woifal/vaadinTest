@@ -3,7 +3,6 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'my-app',
   template: `
-  <!--
     <app-header-layout has-scrolling-region>
       <app-header fixed>
         <app-toolbar>
@@ -12,9 +11,6 @@ import { Component } from '@angular/core';
       </app-header>
       <div>My application content</div>
     </app-header-layout>
-	-->
-	
-	afasfds
   `,
   styles: [`
     app-toolbar {
