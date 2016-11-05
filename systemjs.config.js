@@ -1,8 +1,8 @@
 /**
- * System configuration for Angular samples
+ * System configuration for Angular 2 samples
  * Adjust as necessary for your application needs.
  */
-(function (global) {
+(function(global) {
   System.config({
     paths: {
       // paths serve as alias
@@ -22,11 +22,11 @@
       '@angular/http': 'npm:@angular/http/bundles/http.umd.js',
       '@angular/router': 'npm:@angular/router/bundles/router.umd.js',
       '@angular/forms': 'npm:@angular/forms/bundles/forms.umd.js',
-      '@angular/upgrade': 'npm:@angular/upgrade/bundles/upgrade.umd.js',
 
       // other libraries
-      'rxjs':                      'npm:rxjs',
-      'angular-in-memory-web-api': 'npm:angular-in-memory-web-api/bundles/in-memory-web-api.umd.js'
+      'rxjs':                       'npm:rxjs',
+      'angular2-in-memory-web-api': 'npm:angular2-in-memory-web-api',
+      '@vaadin/angular2-polymer':   'npm:@vaadin/angular2-polymer'
     },
     // packages tells the System loader how to load when no filename and/or no extension
     packages: {
@@ -35,6 +35,14 @@
         defaultExtension: 'js'
       },
       rxjs: {
+        defaultExtension: 'js'
+      },
+      'angular2-in-memory-web-api': {
+        main: './index.js',
+        defaultExtension: 'js'
+      },
+      '@vaadin/angular2-polymer': {
+        main: './index.js',
         defaultExtension: 'js'
       }
     }
