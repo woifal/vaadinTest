@@ -9,7 +9,7 @@ import { Component } from '@angular/core';
           <div title spacer>All heroes</div>
         </app-toolbar>
       </app-header>
-      <div>My application content</div>
+      <my-heroes></my-heroes>
     </app-header-layout>
   `,
   styles: [`
