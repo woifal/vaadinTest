@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { Hero } from './hero';
 import { HeroService } from './hero.service';
@@ -6,7 +7,7 @@ import { HeroService } from './hero.service';
 @Component({
   selector: 'my-heroes',
   template: `
-    <vaadin-grid [items]="heroes">
+    <vaadin-grid [items]="heroes" (selected-items-changed)="onSelectedItemsChanged($event)">
       <table>
         <colgroup>
           <col name="id">
@@ -25,7 +26,10 @@ import { HeroService } from './hero.service';
 export class HeroesComponent implements OnInit {
   heroes: Hero[];
 
-  constructor(private _heroService: HeroService) { }
+  constructor(
+    private _router: Router,
+    private _heroService: HeroService
+  ) { }
 
   getHeroes() {
     this._heroService.getHeroes().then(heroes => this.heroes = heroes);
@@ -33,5 +37,16 @@ export class HeroesComponent implements OnInit {
 
   ngOnInit() {
     this.getHeroes();
+  }
+
+  onSelect(hero: Hero) {
+    this._router.navigate(['/heroes', hero.id]);
+  }
+
+  onSelectedItemsChanged(event: any) {
+    let selectedIndex: number = event.target.selection.selected()[0];
+    if (selectedIndex !== undefined) {
+      this.onSelect(this.heroes[selectedIndex]);
+    }
   }
 }

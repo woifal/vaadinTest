@@ -14,12 +14,17 @@ var angular2_polymer_1 = require('@vaadin/angular2-polymer');
 var app_component_1 = require('./app.component');
 var hero_service_1 = require('./hero.service');
 var heroes_component_1 = require('./heroes.component');
+var hero_detail_component_1 = require('./hero-detail.component');
+var app_routing_1 = require('./app.routing');
 var AppModule = (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         core_1.NgModule({
-            imports: [platform_browser_1.BrowserModule],
+            imports: [
+                platform_browser_1.BrowserModule,
+                app_routing_1.routing
+            ],
             declarations: [
                 app_component_1.AppComponent,
                 angular2_polymer_1.PolymerElement('app-header-layout'),
@@ -27,9 +32,15 @@ var AppModule = (function () {
                 angular2_polymer_1.PolymerElement('app-toolbar'),
                 angular2_polymer_1.PolymerElement('paper-icon-button'),
                 heroes_component_1.HeroesComponent,
-                angular2_polymer_1.PolymerElement('vaadin-grid')
+                angular2_polymer_1.PolymerElement('vaadin-grid'),
+                hero_detail_component_1.HeroDetailComponent,
+                angular2_polymer_1.PolymerElement('paper-input'),
+                angular2_polymer_1.PolymerElement('vaadin-date-picker')
             ],
-            providers: [hero_service_1.HeroService],
+            providers: [
+                hero_service_1.HeroService,
+                app_routing_1.appRoutingProviders
+            ],
             bootstrap: [app_component_1.AppComponent],
             schemas: [core_1.CUSTOM_ELEMENTS_SCHEMA]
         }), 

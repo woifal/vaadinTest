@@ -5,9 +5,14 @@ import { PolymerElement } from '@vaadin/angular2-polymer';
 import { AppComponent }  from './app.component';
 import { HeroService } from './hero.service';
 import { HeroesComponent } from './heroes.component';
+import { HeroDetailComponent } from './hero-detail.component';
+import { routing, appRoutingProviders } from './app.routing';
 
 @NgModule({
-  imports: [ BrowserModule ],
+  imports: [
+    BrowserModule,
+    routing
+  ],
   declarations: [
     AppComponent,
     PolymerElement('app-header-layout'),
@@ -15,9 +20,15 @@ import { HeroesComponent } from './heroes.component';
     PolymerElement('app-toolbar'),
     PolymerElement('paper-icon-button'),
     HeroesComponent,
-    PolymerElement('vaadin-grid')
+    PolymerElement('vaadin-grid'),
+    HeroDetailComponent,
+    PolymerElement('paper-input'),
+    PolymerElement('vaadin-date-picker')
   ],
-  providers: [ HeroService ],
+  providers: [
+    HeroService,
+    appRoutingProviders
+  ],
   bootstrap: [ AppComponent ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
